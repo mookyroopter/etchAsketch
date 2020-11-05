@@ -3,9 +3,12 @@ const button = document.querySelector('#numChange');
 function getColumns () {
     clearBoxes();
     let num = prompt("How many columns?");
-    if (num === null || num === 0) {
+    num = Number(num);
+    num = Math.abs(num);
+    console.log("number = " + num);
+    if (num === null || num === 0  || num === undefined || isNaN(num)) {
         console.log("loop 1");
-        let num = 4;
+        num = 50;
         grid.style.cssText = `grid-template-columns:  repeat(${num}, 1fr)`;
         //grid.style.cssText = `grid-template-rows:  repeat(${num}, 1fr)`;
         updateGrid(num);
